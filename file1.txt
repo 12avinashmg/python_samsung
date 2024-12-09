@@ -1,0 +1,1 @@
+This my first file created for Python training and code analaysis in DEC-2024.
