@@ -1,0 +1,4 @@
+1  This is our Python training
+2  We are now learning File handling
+3  Our next topic is Tuple which is a DS
+4  And later we would learn OOP

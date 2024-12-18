@@ -1,0 +1,237 @@
+
+a = 9
+print(id(a))  
+print(type(a)) 
+print(a) 
+
+
+
+a = 9
+print(id(a))
+print(type(a))
+print(a)
+
+
+b = 9
+print(id(b))
+print(type(b))
+print(b)
+
+
+
+b = 9.9
+print(id(b))
+print(type(b))
+print(b)
+
+
+
+
+my_string = "Chennai"
+print(id(my_string))
+print(type(my_string))
+print(my_string)
+
+
+
+
+
+
+class MyClass:
+	
+"This is my second class"
+	
+a = 10
+	
+def func(self):
+	
+print('Hello')
+
+
+# Output: 10
+print(MyClass.a)
+
+
+# Output: <function MyClass.func at 0x0000000003079BF8>
+
+print(MyClass.func)
+
+
+# Output: 'This is my second class'
+print(MyClass.__doc__)
+
+
+
+
+class Student:
+   def createName(self, name):
+        self.name = Raam
+   def displayName(self):
+         return self.name
+   def printName(self):
+        print "Hello %s" % self.name
+
+
+
+
+first = Student()
+second = Student()
+
+first.createName('Nitin')
+second.createName('Mysooru')
+first.displayName()
+>>
+
+
+
+
+class parentclass:
+    var1="string1"
+    var2= "string2"
+  def displayVar1(self)
+    print "variable1 value is %s" % var1 
+
+class childclass(parentclass):
+    displayVar2(self):
+       print var1
+
+
+pobj=parentclass()
+pobj.var1
+>>
+
+cobj=childclass()
+cobj.var1
+
+
+
+
+
+
+class MyClass:
+	
+"This is my second class"
+
+a = 10
+	
+def func(self):
+		
+print('Hello')
+
+
+# create a new MyClass
+ob = MyClass()
+
+
+# Output: <function MyClass.func at 0x000000000335B0D0>
+
+print(MyClass.func)
+
+
+# Output: <bound method MyClass.func of <__main__.MyClass object at 0x000000000332DEF0>>
+print(ob.func)
+
+
+# Calling function func()
+
+# Output: Hello
+ob.func()
+
+
+
+
+
+
+
+
+
+class parentclass:
+    var1="Kanchipuram"
+    var2= "Chennai"
+
+class childclass(parentclass):
+    var2="Mamallapuram"   # replacing the value of the
+
+
+
+pob=parent()
+cob=child()
+pob.var1
+>>
+cob.var1
+>>
+pob.var2
+>>
+cob.var2
+>>
+cob.var3
+>>
+
+
+
+
+
+class mom:
+  v1 ="I am mom"
+
+  def teach(self):
+    print "Mother teaches good characteristics"
+
+
+class
+ dad:
+   v2 = "I am dad"
+   v3 = "b"
+   def  teach(self, values):
+     print "Father teaches good %s and %s" % self.v3 % values
+
+
+
+class child(mom, dad):
+   v3="I am child"
+  def __init__(self):
+    self.v3 = "behav"iour"
+
+
+cob1 = child()
+cob1.teach()
+cob1.teach("Respect");
+
+
+
+
+
+class swine:
+  def apple(self):
+    print "Sweet pie"
+
+
+obj = swine()
+obj.apple()
+
+
+class new:
+   def __init__(self)
+      print"This is a constructor"
+      print"This is also a method"
+
+newobj = new()
+
+
+// type this in a different file swineflu.py
+def testmodule():
+   print"this is an external module"
+def testmodule2():
+   print"The value of the variable is "
+
+
+
+import swineflu
+v = 10
+v2 = 20
+swineflu.testmodule()
+
+
+youtube video - python from Scratch - Creating a Dynamic Website
+
+
