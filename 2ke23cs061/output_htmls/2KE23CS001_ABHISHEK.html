@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 29.7cm; /* A4 width in landscape */
+            height: 21cm; /* A4 height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
+        }
+        .certificate {
+            border: 15px solid rgba(8, 8, 8, 0.927); /* Red border */
+            background-image: url('assets/certificate_bg_flower.jpg'); /* Flower background */
+            background-size: cover;
+            padding: 40px;
+            width: 90%;
+            height: 90%;
+            position: relative;
+            text-align: center;
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            overflow: hidden; /* Prevents overflow */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Times New Roman', serif; /* Elegant font */
+            font-style: italic; /* Italicized for formal look */
+            color: #2c3e50;
+        }
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.5em;
+            color: #e74c3c; /* Color for title */
+        }
+        h2 {
+            font-size: 2.5em;
+            margin: 1em 0;
+            color: #2980b9;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+            font-style: italic;
+            color: #34495e;
+        }
+        .flower-decor {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background-image: url('assets/flower_design.png'); /* Flower design */
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .signature {
+            margin-top: 50px;
+            text-align: right;
+        }
+        .signature h5 {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #34495e;
+        }
+        .header img {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .header p {
+            color: #2980b9;
+            font-weight: bold;
+        }
+        .footer p {
+            font-size: 1.2em;
+        }
+        .highlight {
+            color: #9b59b6; /* Purple color for highlighting important parts */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="flower-decor"></div>
+        <div class="header">
+            
+        </div>
+        <h1>Certificate of Achievement</h1>
+        <h2>This certifies that</h2>
+        <p id="name_usn">
+            <strong class="highlight">
+                ABHISHEK (<span class="highlight">2KE23CS001</span>)
+            </strong>
+        </p>
+        <p>Has successfully completed the training and workshop of 5 days held in September 2024. The student completed the CRUD operations project that involved</p>
+        <h4 class="highlight"> Front end, Django as backend, and MySQL as database. </h4>
+        <p>Date: 2024-12-18</p>
+        <div class="footer">
+            <p>Issued by: MTD Organization</p>
+        </div>
+    
+            
+        </div>
+    </div>
+</body>
+</html>

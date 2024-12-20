@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Table to Excel with Input</title>
+</head>
+<body>
+
+    <h2>Student Data</h2>
+    
+    <!-- Input fields to add data -->
+    <div>
+        <label for="id">ID:</label>
+        <input type="text" id="id" placeholder="Enter ID">
+        <label for="usn">USN:</label>
+        <input type="text" id="usn" placeholder="Enter USN">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter Name">
+        <button onclick="addRow()">Add Row</button>
+    </div>
+    <br>
+
+    <!-- Table to display data -->
+    <table id="table1" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>USN</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added here dynamically -->
+        </tbody>
+    </table>
+    <br>
+    
+    <!-- Button to export table to Excel -->
+    <button onclick="exportTableToExcel('table1')">Export to Excel</button>
+
+    <script type="text/javascript">
+        // Function to add a new row to the table
+        function addRow() {
+            // Get input values
+            const id = document.getElementById('id').value.trim();
+            const usn = document.getElementById('usn').value.trim();
+            const name = document.getElementById('name').value.trim();
+            
+            // Validate input
+            if (id === "" || usn === "" || name === "") {
+                alert("Please fill out all fields!");
+                return;
+            }
+            
+            // Get table body
+            const tableBody = document.getElementById('table1').querySelector('tbody');
+            
+            // Create a new row
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `<td>${id}</td><td>${usn}</td><td>${name}</td>`;
+            
+            // Add the new row to the table
+            tableBody.appendChild(newRow);
+            
+            // Clear input fields
+            document.getElementById('id').value = "";
+            document.getElementById('usn').value = "";
+            document.getElementById('name').value = "";
+        }
+
+        // Function to export table to Excel
+        function exportTableToExcel(tableId) {
+            const table = document.getElementById(tableId);
+            const html = table.outerHTML;
+            
+            // Encode the HTML table
+            const url = 'data:application/vnd.ms-excel;base64,' + btoa(unescape(encodeURIComponent(html)));
+            
+            // Create a link element to trigger the download
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = 'StudentData.xls'; // The file name
+            link.click();
+        }
+    </script>
+
+</body>
+</html>

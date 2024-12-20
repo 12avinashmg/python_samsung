@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Excel Export</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <h2>Student Data</h2>
+    
+    <!-- Input fields to add data -->
+    <div>
+        <label for="id">ID:</label>
+        <input type="text" id="id" placeholder="Enter ID">
+        <label for="usn">USN:</label>
+        <input type="text" id="usn" placeholder="Enter USN">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter Name">
+        <button onclick="addRow()">Add Row</button>
+    </div>
+    <br>
+
+    <!-- Table to display data -->
+    <table id="table1" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>USN</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added here dynamically -->
+        </tbody>
+    </table>
+    <br>
+    
+    <!-- Button to export table to Excel -->
+    <button onclick="exportTableToExcel()">Export to Excel</button>
+
+    <script type="text/javascript">
+        // Function to add a new row to the table
+        function addRow() {
+            // Get input values
+            const id = document.getElementById('id').value.trim();
+            const usn = document.getElementById('usn').value.trim();
+            const name = document.getElementById('name').value.trim();
+            
+            // Validate input
+            if (id === "" || usn === "" || name === "") {
+                alert("Please fill out all fields!");
+                return;
+            }
+            
+            // Get table body
+            const tableBody = document.getElementById('table1').querySelector('tbody');
+            
+            // Create a new row
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `<td>${id}</td><td>${usn}</td><td>${name}</td>`;
+            
+            // Add the new row to the table
+            tableBody.appendChild(newRow);
+            
+            // Clear input fields
+            document.getElementById('id').value = "";
+            document.getElementById('usn').value = "";
+            document.getElementById('name').value = "";
+        }
+
+        // Function to export table to Excel with styling
+        function exportTableToExcel() {
+            // Fetch table data
+            const table = document.getElementById('table1');
+            const rows = Array.from(table.querySelectorAll('tr'));
+
+            // Prepare data for SheetJS
+            const data = rows.map(row => 
+                Array.from(row.querySelectorAll('th, td')).map(cell => cell.innerText)
+            );
+
+            // Create a workbook and a sheet
+            const workbook = XLSX.utils.book_new();
+            const worksheet = XLSX.utils.aoa_to_sheet(data);
+
+            // Style the header row
+            const headerCells = ["A1", "B1", "C1"];
+            headerCells.forEach(cell => {
+                worksheet[cell].s = {
+                    font: { bold: true, color: { rgb: "FFFFFF" }, sz: 14 },
+                    fill: { fgColor: { rgb: "4F81BD" } },
+                    alignment: { horizontal: "center" },
+                };
+            });
+
+            // Adjust column widths
+            worksheet["!cols"] = [
+                { wch: 10 }, // ID column width
+                { wch: 15 }, // USN column width
+                { wch: 20 }, // Name column width
+            ];
+
+            // Add sheet to workbook
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Student Data");
+
+            // Export the file
+            XLSX.writeFile(workbook, "StudentData.xlsx");
+        }
+    </script>
+
+</body>
+</html>

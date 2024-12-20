@@ -1,0 +1,6 @@
+In this project i created certificate of students it invloves:
+1.I create code of "html" to create "excel sheet" of n students(you take any number of student)
+  it contain 'ID' 'NAME' 'USN';
+2.I created one template for creating certificate using 'html'
+3.I created one python program for creating certificate.
+I done this program with different output of certificate.
